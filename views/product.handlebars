@@ -17,7 +17,20 @@
 			}
 		});
 
-
+function addToCart(){
+		dataLayer.push({
+			'event': 'add_to_cart',
+			'ecommerce': {
+				'items': [
+					{
+						'item_name': '{{list.name}}',       // Name or ID is required.
+						'price': '{{list.cost}}',
+						'item_category': '{{list.category}}'
+					}]
+			}
+		});
+	
+}
  </script>
 
 
@@ -285,7 +298,7 @@ var dataLayer = {
 									</div>
 
 									<div style="padding-top: 1em;">
-										<button type="submit" class="btn btn-primary" id="sub" onclick="formComplete()">Add To
+										<button type="submit" class="btn btn-primary" id="sub" onclick="addToCart()">Add To
 											Cart</button>
 									</div>
 								</form>
