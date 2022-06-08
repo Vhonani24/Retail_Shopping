@@ -1,6 +1,25 @@
 <head>
-
 	<title>Accel-Shopping | Shopping-Cart</title>
+	
+	<script type="text/javascript" language="JavaScript">
+	
+	
+	function removeFromCart(){
+		dataLayer.push({
+			'event': 'remove_from_cart',
+			'ecommerce': {
+				'items': [
+					{
+						'item_name': '{{list.name}}',       // Name or ID is required.
+						'price': '{{list.cost}}',
+						'item_category': '{{list.category}}'
+					}]
+			}
+		});
+	
+    }
+
+ </script>
 
 </head>
 
@@ -73,7 +92,7 @@
 								<p class="cart_total_price">{{list.myTotal}}</p>
 							</td>
 							<td class="cart_total">
-								<button type="submit" class="btn btn-primary">Remove</button>
+								<button type="submit" class="btn btn-primary" onclick="removeFromCart()">Remove</button>
 							</td>
 					</form>
 					</tr>
